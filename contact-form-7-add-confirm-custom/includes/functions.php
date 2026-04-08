@@ -1,4 +1,7 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 /**
  *
  *
@@ -11,7 +14,7 @@
 function wpcf7c_load_textdomain( $locale = null ) {
 	global $l10n;
 
-	$domain = 'contact-form-7-add-confirm';
+	$domain = 'contact-form-7-add-confirm-custom';
 
 	if ( get_locale() == $locale ) {
 		$locale = null;
@@ -24,7 +27,7 @@ function wpcf7c_load_textdomain( $locale = null ) {
 			return load_plugin_textdomain( $domain, false, $domain . '/languages' );
 		}
 	} else {
-		$mo_orig = $l10n[$domain];
+		$mo_orig = isset( $l10n[ $domain ] ) ? $l10n[ $domain ] : null;
 		unload_textdomain( $domain );
 
 		$mofile = $domain . '-' . $locale . '.mo';

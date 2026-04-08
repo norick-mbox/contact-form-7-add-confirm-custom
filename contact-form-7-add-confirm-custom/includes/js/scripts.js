@@ -216,41 +216,50 @@ var wpcf7c_step2_error = function(unit_tag) {
 }
 
 
-document.addEventListener( 'wpcf7submit', function( event ) {
-	switch ( event.detail.status ) {
+document.addEventListener('wpcf7submit', function (event) {
+
+	switch (event.detail.status) {
+
 		case 'wpcf7c_confirmed':
-		wpcf7c_step1(event.detail.unitTag);
-		break;
+		case 'confirm':
+			wpcf7c_step1(event.detail.unitTag);
+			break;
+
 		case 'mail_sent':
-		wpcf7c_step2(event.detail.unitTag);
-		break;
-
+			wpcf7c_step2(event.detail.unitTag);
+			break;
 	}
-}, false );
 
+}, false);
 
-jQuery(function($) {
-	
-	var $submit = $('.wpcf7-submit');
-	var $confirm = $('.wpcf7-confirm');
-	var $policy = $('.policy input[type="checkbox"]');
-	let result = $submit.prop('disabled');
- 	
-  if(result) {
-        $confirm.prop('disabled', true);
-  }else {
-        $confirm.prop('disabled', false);
-  }
-	
-	$policy.change(function() {
-		let result = $policy.prop('checked');
-	
-    if(result) {
-        //disabled属性を解除
-        $confirm.prop('disabled', false);
-    }else {
-        //disabled属性を付与
-        $confirm.prop('disabled', true);
-    }
-})
+jQuery(function ($) {
+
+	$('.wpcf7 form').each(function () {
+
+		var $form = $(this);
+		var $confirm = $form.find('.wpcf7c-btn-confirm, .wpcf7-confirm');
+		var $policy = $form.find('.policy input[type="checkbox"]');
+
+		function updateConfirmButton() {
+
+			if ($policy.length === 0) {
+				$confirm.prop('disabled', false);
+				return;
+			}
+
+			if ($policy.prop('checked')) {
+				$confirm.prop('disabled', false);
+			} else {
+				$confirm.prop('disabled', true);
+			}
+		}
+
+		updateConfirmButton();
+
+		$policy.on('change', function () {
+			updateConfirmButton();
+		});
+
+	});
+
 });

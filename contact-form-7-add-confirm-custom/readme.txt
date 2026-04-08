@@ -1,152 +1,57 @@
-=== Contact Form 7 add confirm ===
-Contributors: Yuichiro ABE
-Donate link:
-Tags: contact, form, contact form
-Requires at least: 3.8
-Tested up to: 4.9.3
-Stable tag: 5.1
+=== Contact Form 7 Add Confirm Custom ===
+Contributors: norick
+Tags: contact, form, contact form, confirm, contact form 7
+Requires at least: 6.0
+Tested up to: 6.8
+Requires PHP: 7.4
+Stable tag: 5.1.2
 License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: contact-form-7-add-confirm
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: contact-form-7-add-confirm-custom
 
-
-"Contact Form 7 add confirm" can add confirm step to "Contact Form 7".
+Adds a confirmation screen to Contact Form 7 and provides compatibility with modern versions of WordPress and Contact Form 7.
 
 == Description ==
 
-"Contact Form 7 add confirm" can add confirm step to "Contact Form 7".
-"Contact Form 7 add confirm"に確認画面を追加するプラグインです。
+Contact Form 7 Add Confirm Custom adds a confirmation step to Contact Form 7.
 
-This plug-in is not related to the developer of the "Contact Form 7".
-このプラグインの作者はContact Form 7プラグイン開発元とは関係ありません、ご注意下さい。
+This plugin is a maintained fork of the original “Contact Form 7 add confirm” plugin, updated for compatibility with recent versions of WordPress and Contact Form 7.
+
+Features:
+
+* Confirmation screen before final submission
+* Back button support
+* Compatible with recent Contact Form 7 versions
+* Multiple form support
+* Works with Flamingo and Contact Form DB
+* Compatible with policy checkbox confirmation flows
+
+This plugin is not affiliated with the Contact Form 7 project.
 
 == Installation ==
 
-1. If you have not yet, Install Contact Form 7 Plugin
-2. Upload the entire `contact-form-7-confirm` folder to the `/wp-content/plugins/` directory.
-3. Activate the plugin through the 'Plugins' menu in WordPress.
+1. Install and activate Contact Form 7.
+2. Upload the `contact-form-7-add-confirm-custom` folder to the `/wp-content/plugins/` directory.
+3. Activate the plugin through the "Plugins" menu in WordPress.
+4. Add `[confirm]` and `[back]` tags to your Contact Form 7 form.
 
-For basic usage, you can also have a look at the [plugin homepage](http://www.eyeta.jp/archives/908).
+== Frequently Asked Questions ==
 
-== Frequently asked questions ==
+= How do I add a confirmation screen? =
 
-= A question that someone might have =
+Add `[confirm]` where you want the confirmation button to appear and `[back]` where you want the back button to appear.
 
-An answer to that question.
+= Does this work with modern Contact Form 7? =
 
-== Screenshots ==
-
+Yes. This version has been updated for recent Contact Form 7 and WordPress releases.
 
 == Changelog ==
-1.3.8.5
- 言語ファイルの読み込みバグ対応
- Javascript非対応のブラウザの場合、送信ボタンを初期から表示するように変更
 
-1.3.8.6
- 言語ファイルの読み込みバグ対応
- captchaで正常に動作していなかった点を修正
-
-1.3.8.7
- ver記載ミス
-
-1.3.8.8
- 「Notice: Undefined index」が出ていた箇所を修正
-
-1.3.8.9
- 「Notice: Undefined index」が出ていた箇所を修正
- javascript上で$を利用しないように変更
-
-1.3.8.10
- デグレしてしまっていた箇所の修正
- javascriptのaddClassとremoveClassの順序を変更
-
-1.3.8.11
- flamingoプラグインで確認ボタンクリック時も記録されてしまう問題を修正
-
-1.3.8.12
- Contact Form DBプラグインで確認ボタンクリック時に記録されてしまう問題を修正
-
-1.3.8.13
- 「on_confirm」オプションを追加、確認画面表示時に独自のJavascriptを追加できるようにしました。
- 編集に戻る際は、ボタンに直接イベントをつけて下さい。
-
-1.3.9.1
- せっかくスクロールアンカーをセットできるので
- 　add_filter("wpcf7c_input_error_scroll", '__return_true');
- 　とすることで、入力エラーじもアンカーまでスクロールするようにしました。
- 　要素の表示非表示を制御するとスクロールが思った場所にいかないのでインターバルを入れました。
- Contact Form 7 3.9 に（無理矢理ですが）対応しました。
- input type="text"などについて、disabledは付けずにreadonlyのみにしました。
- textareaについて、入力内容が縦幅より大きい場合、確認画面で高さを伸ばすようにしました。
-
-1.3.9.2
- エラーメッセージ表示のDIVが確認画面から編集画面に戻る際に
- display: blockのままだったものをnoneにするように修正
-
-1.3.9.3
- WordPress4.0
- Contact Form 7 3.9.2に対応
-
-1.3.9.4
- Contact Form DB 2.8.2以上に対応
-
-1.3.9.4
- Contact Form DB 2.8.2以上に対応
-
-1.3.9.5
- バグFIXデバックログ出力が残っていたものを削除
-
-1.3.9.6
- Noticeが出ていた箇所を修正
-
-4.1
- バージョンのカウント方法をcontact form 7とwordpressに合わせました。
- contact form DBプラグインの2.8.26以降で二重登録される不具合に対応。
-
-4.1.1
- メール送信エラーなどの際にエラーメッセージが出ない不具合を修正
-
-4.1.2
- CAPTCHA対応バグFIX
-
-4.1.3
- quizに対応
-
-4.2.1
- Contact Form 7 4.2.1に対応
-
-4.2.1.1
- Contact Form 7 4.2より古いものと実行した場合の不具合を修正
-
-4.2.1.1
- Contact Form 7 4.2より古いものと実行した場合の不具合を修正
-
-4.3.1
- Check at WordPress4.4
-
-4.3.2
- Contact Form 7がインストールされていないときに管理画面がおかしくなるバグを修正
-
-4.3.3
- アンカースクロールバグ修正
-
-4.6
- WordPress4.7対応
-
-4.6.1
- Contact Form 7 ver.4.6に対応し
- wpcf7_add_form_tag関数に対応
-
-4.6.2
- Contact Form 7 ver.4.6に対応し
- WPCF7_FormTagに対応
-
-4.8
- Contact Form 7 ver.4.8に対応
-
-5.0
- Contact Form 7 ver.5.0に対応
- 
-== Upgrade notice ==
-5.1
- jQuery3.0対応としてscripts.js の size() を length に変更
+= 5.1.2 =
+* Forked and renamed for independent maintenance
+* Added compatibility with modern Contact Form 7 submit status handling
+* Fixed confirm button handling for multiple forms
+* Added sanitization for POST values
+* Added direct access protection to plugin files
+* Fixed compatibility with policy checkbox confirmation flow
+* Fixed enqueue handles and text domain for forked version

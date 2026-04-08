@@ -1,13 +1,16 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /*
-Plugin Name: Contact Form 7 add confirm
-Plugin URI: http://www.eyeta.jp/archives/908
-Description: Add confirm step to contact form 7
-Author: Yuichiro ABE
-Author URI: http://www.eyeta.jp/
-Text Domain: contact-form-7-add-confirm
+Plugin Name: Contact Form 7 Add Confirm Custom
+Plugin URI: https://example.com/
+Description: Forked version of Contact Form 7 add confirm for modern Contact Form 7.
+Author: norick saeki
+Text Domain: contact-form-7-add-confirm-custom
 Domain Path: /languages/
-Version: 5.1
+Version: 5.1.2
 */
 
 /*  Copyright 2014- Yuichiro ABE (email: y.abe at eyeta.jp)
@@ -28,7 +31,7 @@ Version: 5.1
 */
 
 
-define( 'WPCF7C_VERSION', '5.1' );
+define( 'WPCF7C_CUSTOM_VERSION', '5.1.2' );
 
 if ( ! defined( 'WPCF7C_PLUGIN_BASENAME' ) )
 	define( 'WPCF7C_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );

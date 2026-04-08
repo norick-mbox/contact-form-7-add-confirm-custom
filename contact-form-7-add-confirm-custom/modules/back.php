@@ -1,4 +1,7 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 /**
 ** A base module for [back]
 **/
@@ -37,7 +40,7 @@ function wpcf7c_back_shortcode_handler( $tag ) {
 	$value = isset( $tag->values[0] ) ? $tag->values[0] : '';
 
 	if ( empty( $value ) )
-		$value = __( 'Backedit', 'contact-form-7-add-confirm' );
+		$value = __( 'Back', 'contact-form-7-add-confirm-custom' );
 
 	$atts['type'] = 'button';
 	$atts['value'] = $value;
@@ -65,16 +68,16 @@ if(WPCF7_VERSION >= "4.2.0") {
 			return false;
 		}
 		$tag_generator = WPCF7_TagGenerator::get_instance();
-		$tag_generator->add( 'back', __( 'Back button', 'contact-form-7-add-confirm' ),
+		$tag_generator->add( 'back', __( 'Back button', 'contact-form-7-add-confirm-custom' ),
 			'wpcf7c_tg_pane_back', array( 'nameless' => 1 ) );
 	}
 
 	function wpcf7c_tg_pane_back( $contact_form, $args = '' ) {
 		$args = wp_parse_args( $args, array() );
 
-		$description = __( "Generate a form-tag for a back button. For more details, see %s.", 'contact-form-7-add-confirm' );
+		$description = __( "Generate a form-tag for a back button. For more details, see %s.", 'contact-form-7-add-confirm-custom' );
 
-		$desc_link = wpcf7_link( __( 'http://www.eyeta.jp/archives/908', 'contact-form-7-add-confirm' ), __( 'Back Button', 'contact-form-7-add-confirm' ) );
+		$desc_link = wpcf7_link( __( 'https://github.com/norick-mbox/contact-form-7-add-confirm-custom.git', 'contact-form-7-add-confirm-custom' ), __( 'Back Button', 'contact-form-7-add-confirm' ) );
 
 		?>
 		<div class="control-box">
@@ -131,7 +134,7 @@ if(WPCF7_VERSION >= "4.2.0") {
 		if ( ! function_exists( 'wpcf7_add_tag_generator' ) )
 			return;
 
-		wpcf7_add_tag_generator( 'back', __( 'Back button', 'contact-form-7-add-confirm' ),
+		wpcf7_add_tag_generator( 'back', __( 'Back button', 'contact-form-7-add-confirm-custom' ),
 			'wpcf7-tg-pane-back', 'wpcf7c_tg_pane_back', array( 'nameless' => 1 ) );
 	}
 

@@ -1,4 +1,7 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 /**
 ** A base module for [confirm]
 **/
@@ -33,7 +36,7 @@ function wpcf7c_confirm_shortcode_handler( $tag ) {
 	$value = isset( $tag->values[0] ) ? $tag->values[0] : '';
 
 	if ( empty( $value ) )
-		$value = __( 'Confirm', 'contact-form-7-add-confirm' );
+		$value = __( 'Confirm', 'contact-form-7-add-confirm-custom' );
 
 	$atts['type'] = 'submit';
 	$atts['value'] = $value;
@@ -59,7 +62,7 @@ if(WPCF7_VERSION >= "4.2.0") {
 			return false;
 		}
 		$tag_generator = WPCF7_TagGenerator::get_instance();
-		$tag_generator->add( 'confirm', __( 'Confirm button', 'contact-form-7-add-confirm' ),
+		$tag_generator->add( 'confirm', __( 'Confirm button', 'contact-form-7-add-confirm-custom' ),
 			'wpcf7c_tg_pane_confirm', array( 'nameless' => 1 ) );
 	}
 
@@ -67,9 +70,9 @@ if(WPCF7_VERSION >= "4.2.0") {
 	function wpcf7c_tg_pane_confirm( $contact_form, $args = '' ) {
 		$args = wp_parse_args( $args, array() );
 
-		$description = __( "Generate a form-tag for a back button. For more details, see %s.", 'contact-form-7-add-confirm' );
+		$description = __( "Generate a form-tag for a back button. For more details, see %s.", 'contact-form-7-add-confirm-custom' );
 
-		$desc_link = wpcf7_link( __( 'http://www.eyeta.jp/archives/908', 'contact-form-7-add-confirm' ), __( 'Back Button', 'contact-form-7-add-confirm' ) );
+		$desc_link = wpcf7_link( __( 'http://www.eyeta.jp/archives/908', 'contact-form-7-add-confirm-custom' ), __( 'Back Button', 'contact-form-7-add-confirm-custom' ) );
 
 		?>
 		<div class="control-box">
