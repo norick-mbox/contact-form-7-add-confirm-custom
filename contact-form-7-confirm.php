@@ -1,0 +1,56 @@
+<?php
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+/*
+Plugin Name: Add Confirm Screen for Contact Form 7
+Plugin URI: https://github.com/norick-mbox/contact-form-7-add-confirm-custom
+Description: Forked version of Contact Form 7 add confirm for modern Contact Form 7.
+Author: norick saeki
+Text Domain: add-confirm-screen-for-contact-form-7
+Domain Path: /languages/
+Version: 5.1.2
+License: GPLv2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+*/
+
+/*  Copyright 2014- Yuichiro ABE (email: y.abe at eyeta.jp)
+
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 2 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program; if not, write to the Free Software
+    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+*/
+
+
+define( 'WPCF7C_CUSTOM_VERSION', '5.1.2' );
+
+if ( ! defined( 'WPCF7C_PLUGIN_BASENAME' ) )
+	define( 'WPCF7C_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
+
+if ( ! defined( 'WPCF7C_PLUGIN_NAME' ) )
+	define( 'WPCF7C_PLUGIN_NAME', trim( dirname( WPCF7C_PLUGIN_BASENAME ), '/' ) );
+
+if ( ! defined( 'WPCF7C_PLUGIN_DIR' ) )
+	define( 'WPCF7C_PLUGIN_DIR', untrailingslashit( dirname( __FILE__ ) ) );
+
+if ( ! defined( 'WPCF7C_PLUGIN_URL' ) )
+	define( 'WPCF7C_PLUGIN_URL', untrailingslashit( plugins_url( '', __FILE__ ) ) );
+
+if ( ! defined( 'WPCF7C_PLUGIN_MODULES_DIR' ) )
+	define( 'WPCF7C_PLUGIN_MODULES_DIR', WPCF7C_PLUGIN_DIR . '/modules' );
+
+
+
+require_once WPCF7C_PLUGIN_DIR . '/settings.php';
+
