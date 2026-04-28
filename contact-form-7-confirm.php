@@ -4,11 +4,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /*
-Plugin Name: Add Confirm Screen for Contact Form 7
+Plugin Name: FormFlow Confirm for CF7
 Plugin URI: https://github.com/norick-mbox/contact-form-7-add-confirm-custom
 Description: Forked version of Contact Form 7 add confirm for modern Contact Form 7.
 Author: norick saeki
-Text Domain: add-confirm-screen-for-contact-form-7
+Text Domain: formflow-confirm-for-cf7
 Domain Path: /languages/
 Version: 5.1.2
 License: GPLv2 or later
