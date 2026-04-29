@@ -40,7 +40,7 @@ function wpcf7c_back_shortcode_handler( $tag ) {
 	$value = isset( $tag->values[0] ) ? $tag->values[0] : '';
 
 	if ( empty( $value ) )
-		$value = __( 'Back', 'formflow-confirm-for-cf7' );
+		$value = __( 'Back', 'norick-confirm-for-contact-form-7' );
 
 	$atts['type'] = 'button';
 	$atts['value'] = $value;
@@ -68,16 +68,16 @@ if(WPCF7_VERSION >= "4.2.0") {
 			return false;
 		}
 		$tag_generator = WPCF7_TagGenerator::get_instance();
-		$tag_generator->add( 'back', __( 'Back button', 'formflow-confirm-for-cf7' ),
+		$tag_generator->add( 'back', __( 'Back button', 'norick-confirm-for-contact-form-7' ),
 			'wpcf7c_tg_pane_back', array( 'nameless' => 1 ) );
 	}
 
 	function wpcf7c_tg_pane_back( $contact_form, $args = '' ) {
 		$args = wp_parse_args( $args, array() );
 		/* translators: %s: Documentation link. */
-		$description = __( "Generate a form-tag for a back button. For more details, see %s.", 'formflow-confirm-for-cf7' );
+		$description = __( "Generate a form-tag for a back button. For more details, see %s.", 'norick-confirm-for-contact-form-7' );
 
-		$desc_link = wpcf7_link( __( 'https://github.com/norick-mbox/contact-form-7-add-confirm-custom.git', 'formflow-confirm-for-cf7' ), __( 'Back Button', 'formflow-confirm-for-cf7' ) );
+		$desc_link = wpcf7_link( __( 'https://github.com/norick-mbox/contact-form-7-add-confirm-custom.git', 'norick-confirm-for-contact-form-7' ), __( 'Back Button', 'norick-confirm-for-contact-form-7' ) );
 
 		?>
 		<div class="control-box">
@@ -87,7 +87,7 @@ if(WPCF7_VERSION >= "4.2.0") {
 					<tbody>
 					<tr>
 						<th scope="row"><label
-								for="<?php echo esc_attr( $args['content'] . '-values' ); ?>"><?php echo esc_html( __( 'Label', 'formflow-confirm-for-cf7' ) ); ?></label>
+								for="<?php echo esc_attr( $args['content'] . '-values' ); ?>"><?php echo esc_html( __( 'Label', 'norick-confirm-for-contact-form-7' ) ); ?></label>
 						</th>
 						<td><input type="text" name="values" class="oneline"
 						           id="<?php echo esc_attr( $args['content'] . '-values' ); ?>"/></td>
@@ -95,7 +95,7 @@ if(WPCF7_VERSION >= "4.2.0") {
 
 					<tr>
 						<th scope="row"><label
-								for="<?php echo esc_attr( $args['content'] . '-id' ); ?>"><?php echo esc_html( __( 'Id attribute', 'formflow-confirm-for-cf7' ) ); ?></label>
+								for="<?php echo esc_attr( $args['content'] . '-id' ); ?>"><?php echo esc_html( __( 'Id attribute', 'norick-confirm-for-contact-form-7' ) ); ?></label>
 						</th>
 						<td><input type="text" name="id" class="idvalue oneline option"
 						           id="<?php echo esc_attr( $args['content'] . '-id' ); ?>"/></td>
@@ -103,7 +103,7 @@ if(WPCF7_VERSION >= "4.2.0") {
 
 					<tr>
 						<th scope="row"><label
-								for="<?php echo esc_attr( $args['content'] . '-class' ); ?>"><?php echo esc_html( __( 'Class attribute', 'formflow-confirm-for-cf7' ) ); ?></label>
+								for="<?php echo esc_attr( $args['content'] . '-class' ); ?>"><?php echo esc_html( __( 'Class attribute', 'norick-confirm-for-contact-form-7' ) ); ?></label>
 						</th>
 						<td><input type="text" name="class" class="classvalue oneline option"
 						           id="<?php echo esc_attr( $args['content'] . '-class' ); ?>"/></td>
@@ -119,7 +119,7 @@ if(WPCF7_VERSION >= "4.2.0") {
 
 			<div class="submitbox">
 				<input type="button" class="button button-primary insert-tag"
-				       value="<?php echo esc_attr( __( 'Insert Tag', 'formflow-confirm-for-cf7' ) ); ?>"/>
+				       value="<?php echo esc_attr( __( 'Insert Tag', 'norick-confirm-for-contact-form-7' ) ); ?>"/>
 			</div>
 		</div>
 		<?php
@@ -133,7 +133,7 @@ if(WPCF7_VERSION >= "4.2.0") {
 		if ( ! function_exists( 'wpcf7_add_tag_generator' ) )
 			return;
 
-		wpcf7_add_tag_generator( 'back', __( 'Back button', 'formflow-confirm-for-cf7' ),
+		wpcf7_add_tag_generator( 'back', __( 'Back button', 'norick-confirm-for-contact-form-7' ),
 			'wpcf7-tg-pane-back', 'wpcf7c_tg_pane_back', array( 'nameless' => 1 ) );
 	}
 
@@ -143,22 +143,22 @@ if(WPCF7_VERSION >= "4.2.0") {
 	<form action="">
 	<table>
 	<tr>
-	<td><code>id</code> (<?php echo esc_html( __( 'optional', 'formflow-confirm-for-cf7' ) ); ?>)<br />
+	<td><code>id</code> (<?php echo esc_html( __( 'optional', 'norick-confirm-for-contact-form-7' ) ); ?>)<br />
 	<input type="text" name="id" class="idvalue oneline option" /></td>
 
-	<td><code>class</code> (<?php echo esc_html( __( 'optional', 'formflow-confirm-for-cf7' ) ); ?>)<br />
+	<td><code>class</code> (<?php echo esc_html( __( 'optional', 'norick-confirm-for-contact-form-7' ) ); ?>)<br />
 	<input type="text" name="class" class="classvalue oneline option" /></td>
 	</tr>
 
 	<tr>
-	<td><?php echo esc_html( __( 'Label', 'formflow-confirm-for-cf7' ) ); ?> (<?php echo esc_html( __( 'optional', 'formflow-confirm-for-cf7' ) ); ?>)<br />
+	<td><?php echo esc_html( __( 'Label', 'norick-confirm-for-contact-form-7' ) ); ?> (<?php echo esc_html( __( 'optional', 'norick-confirm-for-contact-form-7' ) ); ?>)<br />
 	<input type="text" name="values" class="oneline" /></td>
 
 	<td></td>
 	</tr>
 	</table>
 
-	<div class="tg-tag"><?php echo esc_html( __( "Copy this code and paste it into the form left.", 'formflow-confirm-for-cf7' ) ); ?><br /><input type="text" name="back" class="tag wp-ui-text-highlight code" readonly="readonly" onfocus="this.select()" /></div>
+	<div class="tg-tag"><?php echo esc_html( __( "Copy this code and paste it into the form left.", 'norick-confirm-for-contact-form-7' ) ); ?><br /><input type="text" name="back" class="tag wp-ui-text-highlight code" readonly="readonly" onfocus="this.select()" /></div>
 	</form>
 	</div>
 	<?php

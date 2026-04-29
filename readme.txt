@@ -1,4 +1,4 @@
-=== FormFlow Confirm for CF7 ===
+=== Norick Confirm for Contact Form 7 ===
 Contributors: noricksaeki
 Requires Plugins: contact-form-7
 Tags: contact, form, contact form, confirm, contact form 7
@@ -8,13 +8,13 @@ Requires PHP: 7.4
 Stable tag: 5.1.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: formflow-confirm-for-cf7
+Text Domain: norick-confirm-for-contact-form-7
 
 Adds a confirmation screen to Contact Form 7 and provides compatibility with modern versions of WordPress and Contact Form 7.
 
 == Description ==
 
-Add Confirm Screen for Contact Form 7 adds a confirmation step to Contact Form 7.
+This plugin adds a confirmation step to Contact Form 7.
 
 This plugin is a maintained fork of the original “Contact Form 7 add confirm” plugin, updated for compatibility with recent versions of WordPress and Contact Form 7.
 
@@ -32,7 +32,7 @@ This plugin is not affiliated with the Contact Form 7 project.
 == Installation ==
 
 1. Install and activate Contact Form 7.
-2. Upload the `formflow-confirm-for-cf7` folder to the `/wp-content/plugins/` directory.
+2. Upload the `norick-confirm-for-contact-form-7` folder to the `/wp-content/plugins/` directory.
 3. Activate the plugin through the "Plugins" menu in WordPress.
 4. Add `[confirm]` and `[back]` tags to your Contact Form 7 form.
 
