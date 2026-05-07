@@ -53,3 +53,27 @@ msgstr "確認ボタン"
 
 msgid "Add confirm step to contact form 7"
 msgstr "Contact Form 7プラグインに確認画面をつけるプラグイン"
+
+
+msgid ""
+msgstr ""
+"Project-Id-Version: Norick Confirm for Contact Form 7\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Confirm Settings"
+msgstr "確認設定"
+
+msgid "Confirmation screen message"
+msgstr "確認画面メッセージ"
+
+msgid "Example: Please confirm your input before submission."
+msgstr "例：送信前に入力内容をご確認ください。"
+
+msgid "Please confirm your input."
+msgstr "入力内容をご確認ください。"
+
+msgid "Original Contact Form 7 add confirm plugin was deactivated to avoid conflicts."
+msgstr "競合防止のため旧 Contact Form 7 add confirm プラグインを無効化しました。"
