@@ -4,4 +4,11 @@
 
 .wpcf7c-hide {display: none;}
 .wpcf7c-force-hide {display: none !important;}
-.wpcf7c-conf {background-color: #999999; color: black; border: 1px solid #333333;}
+.wpcf7c-conf ,.wpcf7c-conf div{background-color: light-dark(rgb(232, 240, 254), rgba(70, 90, 126, 0.4)) !important; border: 1px solid #333333;}
+
+
+.wpcf7c-confirm-mode {
+  border: 2px solid #2271b1;
+  padding: 20px;
+  background: #f8fcff;
+}

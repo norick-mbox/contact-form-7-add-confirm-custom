@@ -63,7 +63,7 @@ var wpcf7c_to_step1 = function(parent, scroll){
 	parent.find(".wpcf7c-elm-step1").removeClass("wpcf7c-force-hide");
 
 	parent.find("input[name=_wpcf7c]").val("step1");
-
+	parent.removeClass("wpcf7c-confirm-mode");
 	var responseOutput = parent.find('div.wpcf7-response-output');
 	responseOutput.removeClass("wpcf7c-force-hide");
 	responseOutput.removeClass("wpcf7-mail-sent-ng");
@@ -157,6 +157,8 @@ var wpcf7c_step1 = function(unit_tag){
 
 		}
 	});
+
+	
 }
 
 var wpcf7c_scroll = function(unit_tag) {
