@@ -12,7 +12,7 @@
     Author: noricksaeki
     Text Domain: norick-confirm-for-contact-form-7
     Domain Path: /languages/
-    Version: 6.0.1
+    Version: 6.0.2
     License: GPLv2 or later
     License URI: https://www.gnu.org/licenses/gpl-2.0.html
  */
@@ -91,6 +91,18 @@
     function norick_confirm_panel($post)
     {
     $value = get_post_meta($post->id(), '_norick_confirm_message', true);
+    $simple_thanks_enabled = get_post_meta(
+        $post->id(),
+        '_norick_simple_thanks_enabled',
+        true
+    );
+
+    $simple_thanks_message = get_post_meta(
+        $post->id(),
+        '_norick_simple_thanks_message',
+        true
+    );
+
     ?>
     <h2>
 	<?php
@@ -112,6 +124,66 @@
         'norick-confirm-for-contact-form-7'
             );
     ?>
+  </p>
+
+  <hr>
+
+<h2>
+<?php
+    echo esc_html__(
+        'Simple Thank You Screen',
+        'norick-confirm-for-contact-form-7'
+    );
+    ?>
+</h2>
+
+<label>
+    <input
+        type="checkbox"
+        name="norick_simple_thanks_enabled"
+        value="1"
+        <?php checked($simple_thanks_enabled, '1'); ?>
+    />
+    <?php
+        echo esc_html__(
+                'Enable Simple Thank You Screen',
+                'norick-confirm-for-contact-form-7'
+            );
+        ?>
+</label>
+
+<p class="description">
+<?php
+    echo esc_html__(
+        'Hide the form after successful submission and display the success message prominently.',
+        'norick-confirm-for-contact-form-7'
+    );
+    ?>
+</p>
+<p class="description">
+<?php
+    echo esc_html__(
+        'This feature works only when the confirmation screen feature is enabled.',
+        'norick-confirm-for-contact-form-7'
+    );
+    ?>
+</p>
+
+<textarea
+    name="norick_simple_thanks_message"
+    rows="5"
+    class="large-text"
+><?php
+ echo esc_textarea($simple_thanks_message);
+    ?></textarea>
+
+<p class="description">
+<?php
+    echo esc_html__(
+        'Additional message displayed below the Contact Form 7 success message.',
+        'norick-confirm-for-contact-form-7'
+    );
+    ?>
 </p>
 
     <?php
@@ -130,6 +202,22 @@
                     wp_unslash($_POST['norick_confirm_message'])
                 )
             );
+            update_post_meta(
+                $post->id(),
+                '_norick_simple_thanks_enabled',
+                !empty($_POST['norick_simple_thanks_enabled']) ? '1' : '0'
+            );
+
+            update_post_meta(
+                $post->id(),
+                '_norick_simple_thanks_message',
+                wp_kses_post(
+                    wp_unslash(
+                        $_POST['norick_simple_thanks_message'] ?? ''
+                    )
+                )
+            );
+
         });
 
         add_action('plugins_loaded', 'norick_confirm_load_textdomain');
@@ -144,4 +232,40 @@
             );
         }
 
-    require_once WPCF7C_PLUGIN_DIR . '/settings.php';
+        require_once WPCF7C_PLUGIN_DIR . '/settings.php';
+
+        add_filter(
+            'wpcf7_form_elements',
+            'norick_confirm_add_thanks_hidden_fields'
+        );
+
+        function norick_confirm_add_thanks_hidden_fields($content)
+        {
+
+            $form = WPCF7_ContactForm::get_current();
+
+            if (!$form) {
+                return $content;
+            }
+
+            $enabled = get_post_meta(
+                $form->id(),
+                '_norick_simple_thanks_enabled',
+                true
+            );
+
+            $message = get_post_meta(
+                $form->id(),
+                '_norick_simple_thanks_message',
+                true
+            );
+
+            $hidden = sprintf(
+                '<input type="hidden" class="norick-simple-thanks-enabled" value="%s" />' .
+                '<input type="hidden" class="norick-simple-thanks-message" value="%s" />',
+                esc_attr($enabled),
+                esc_attr($message)
+            );
+
+            return $hidden . $content;
+    }
