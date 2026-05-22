@@ -29,3 +29,18 @@ msgstr ""
 
 msgid "Original Contact Form 7 add confirm plugin was deactivated to avoid conflicts."
 msgstr ""
+
+msgid "Simple Thank You Screen"
+msgstr ""
+
+msgid "Enable Simple Thank You Screen"
+msgstr ""
+
+msgid "Hide the form after successful submission and display the success message prominently."
+msgstr ""
+
+msgid "Additional message displayed below the Contact Form 7 success message."
+msgstr ""
+
+msgid "This feature works only when the confirmation screen feature is enabled."
+msgstr ""

@@ -12,3 +12,19 @@
   padding: 20px;
   background: #f8fcff;
 }
+
+.wpcf7 form .wpcf7-confirm-thanks {
+  display: block !important;
+  margin: 1em auto;
+  padding: 0;
+  line-height: 1.8;
+  border: none;
+}
+
+.wpcf7-confirm-additional-message {
+  display: block;
+  margin-top: 20px;
+  line-height: 1.8;
+}
+
+
