@@ -1,14 +1,14 @@
-(function(jQuery){
+(function (jQuery) {
 
 
 
-	if(jQuery(".wpcf7c-elm-step1").length != 0) {
+	if (jQuery(".wpcf7c-elm-step1").length != 0) {
 		// 対象有り
 
-		jQuery(".wpcf7c-elm-step1").each(function(){
+		jQuery(".wpcf7c-elm-step1").each(function () {
 			// 親のフォームを検索
 			var parent = jQuery(this).parents("form");
-			if(parent.attr("wpcf7c") == undefined) {
+			if (parent.attr("wpcf7c") == undefined) {
 				// elm-submitをsubmitボタンへもセット
 				parent.find(".wpcf7-submit").addClass("wpcf7c-elm-step2").addClass("wpcf7c-force-hide");
 				parent.find(".ajax-loader").addClass("wpcf7c-elm-step2").addClass("wpcf7c-force-hide");
@@ -30,7 +30,7 @@
 				parent.find(".wpcf7c-elm-step1").removeClass("wpcf7c-force-hide");
 
 				// 戻って編集ボタン挙動
-				parent.find(".wpcf7c-btn-back").on("click", function(){
+				parent.find(".wpcf7c-btn-back").on("click", function () {
 					wpcf7c_to_step1(parent, true);
 					return false;
 				});
@@ -47,8 +47,8 @@
 
 })(jQuery);
 
-var wpcf7c_to_step1 = function(parent, scroll){
-	parent.find(".wpcf7c-conf").each(function(){
+var wpcf7c_to_step1 = function (parent, scroll) {
+	parent.find(".wpcf7c-conf").each(function () {
 		// 親フォーム
 		var parent_form = jQuery(this).parents("form");
 
@@ -67,27 +67,27 @@ var wpcf7c_to_step1 = function(parent, scroll){
 	var responseOutput = parent.find('div.wpcf7-response-output');
 	responseOutput.removeClass("wpcf7c-force-hide");
 	responseOutput.removeClass("wpcf7-mail-sent-ng");
-// 	responseOutput.css("display", "none");
+	// 	responseOutput.css("display", "none");
 	responseOutput.addClass("wpcf7c-force-hide");
 
 	parent.find(".ajax-loader").addClass("wpcf7c-elm-step2").addClass("wpcf7c-force-hide");
 
 	// スムーズスクロール
-	if(scroll) {
+	if (scroll) {
 		// スムーズスクロール
-		setTimeout(function() { wpcf7c_scroll(parent.find("input[name=_wpcf7_unit_tag]").val()) }, 100);
+		setTimeout(function () { wpcf7c_scroll(parent.find("input[name=_wpcf7_unit_tag]").val()) }, 100);
 	}
 
 }
 
 
-var wpcf7c_step1 = function(unit_tag){
+var wpcf7c_step1 = function (unit_tag) {
 	// 確認完了
 
 	// 対象フォーム検索
 	//var elm_unit_tag = jQuery.find("input[name=_wpcf7_unit_tag]");
-	jQuery(jQuery.find("input[name=_wpcf7_unit_tag]")).each(function(){
-		if(jQuery(this).val() == unit_tag) {
+	jQuery(jQuery.find("input[name=_wpcf7_unit_tag]")).each(function () {
+		if (jQuery(this).val() == unit_tag) {
 			var parent = jQuery(this).parents("form");
 
 
@@ -96,20 +96,20 @@ var wpcf7c_step1 = function(unit_tag){
 
 			// 確認画面表示
 			// テキストエリアを伸ばす
-			parent.find("textarea").each(function(){
-				if(this.scrollHeight > this.offsetHeight){
+			parent.find("textarea").each(function () {
+				if (this.scrollHeight > this.offsetHeight) {
 					this.style.height = (this.scrollHeight + 10) + 'px';
 				}
 			});
 			parent.find("textarea").attr("readonly", true).addClass("wpcf7c-conf");
-			parent.find("select").each(function(){
+			parent.find("select").each(function () {
 				jQuery(this).attr("readonly", true).attr("disabled", true).addClass("wpcf7c-conf");
 				jQuery(this).after(
 					jQuery('<input type="hidden" />').attr("name", jQuery(this).attr("name")).val(jQuery(this).val()).addClass("wpcf7c-conf-hidden")
 				);
 			});
-			parent.find("input").each(function(){
-				switch(jQuery(this).attr("type")) {
+			parent.find("input").each(function () {
+				switch (jQuery(this).attr("type")) {
 					case "submit":
 					case "button":
 					case "hidden":
@@ -120,7 +120,7 @@ var wpcf7c_step1 = function(unit_tag){
 					case "checkbox":
 						// 選択されているものだけ対処
 						jQuery(this).attr("readonly", true).attr("disabled", true).addClass("wpcf7c-conf");
-						if(jQuery(this).is(":checked")) {
+						if (jQuery(this).is(":checked")) {
 							jQuery(this).after(
 								jQuery('<input type="hidden" />').attr("name", jQuery(this).attr("name")).val(jQuery(this).val()).addClass("wpcf7c-conf-hidden")
 							);
@@ -152,37 +152,37 @@ var wpcf7c_step1 = function(unit_tag){
 			parent.find("input[name=_wpcf7c]").val("step2");
 
 			// スムーズスクロール
-			setTimeout(function() { wpcf7c_scroll(unit_tag) }, 100);
+			setTimeout(function () { wpcf7c_scroll(unit_tag) }, 100);
 
 
 		}
 	});
 
-	
+
 }
 
-var wpcf7c_scroll = function(unit_tag) {
+var wpcf7c_scroll = function (unit_tag) {
 	// エラーの時などにアンカーまでスクロール
-	jQuery(jQuery.find("input[name=_wpcf7_unit_tag]")).each(function(){
-		if(jQuery(this).val() == unit_tag) {
+	jQuery(jQuery.find("input[name=_wpcf7_unit_tag]")).each(function () {
+		if (jQuery(this).val() == unit_tag) {
 			var parent = jQuery(this).parents("form");
 			var speed = 1000;
 			var position = parent.offset().top;
-			if(jQuery('.wpcf7c-anchor').length != 0) {
+			if (jQuery('.wpcf7c-anchor').length != 0) {
 				position = jQuery('.wpcf7c-anchor').offset().top;
 			}
-			jQuery("html, body").animate({scrollTop:position}, speed, "swing");
+			jQuery("html, body").animate({ scrollTop: position }, speed, "swing");
 		}
 	});
 }
 
-var wpcf7c_step2 = function(unit_tag){
+var wpcf7c_step2 = function (unit_tag) {
 	// 確認完了
 
 	// 対象フォーム検索
 	//var elm_unit_tag = jQuery.find("input[name=_wpcf7_unit_tag]");
-	jQuery(jQuery.find("input[name=_wpcf7_unit_tag]")).each(function(){
-		if(jQuery(this).val() == unit_tag) {
+	jQuery(jQuery.find("input[name=_wpcf7_unit_tag]")).each(function () {
+		if (jQuery(this).val() == unit_tag) {
 			var parent = jQuery(this).parents("form");
 
 
@@ -193,7 +193,7 @@ var wpcf7c_step2 = function(unit_tag){
 			wpcf7c_to_step1(parent);
 
 			// step3の要素があれば、それに切り替える
-			if(parent.find(".wpcf7c-elm-step3").length != 0) {
+			if (parent.find(".wpcf7c-elm-step3").length != 0) {
 				// 表示切替
 				parent.find(".wpcf7c-elm-step1").addClass("wpcf7c-force-hide");
 				parent.find(".wpcf7c-elm-step2").addClass("wpcf7c-force-hide");
@@ -205,9 +205,9 @@ var wpcf7c_step2 = function(unit_tag){
 	});
 }
 
-var wpcf7c_step2_error = function(unit_tag) {
-	jQuery(jQuery.find("input[name=_wpcf7_unit_tag]")).each(function(){
-		if(jQuery(this).val() == unit_tag) {
+var wpcf7c_step2_error = function (unit_tag) {
+	jQuery(jQuery.find("input[name=_wpcf7_unit_tag]")).each(function () {
+		if (jQuery(this).val() == unit_tag) {
 			var parent = jQuery(this).parents("form");
 
 			var responseOutput = parent.find('div.wpcf7-response-output');
@@ -228,7 +228,66 @@ document.addEventListener('wpcf7submit', function (event) {
 			break;
 
 		case 'mail_sent':
+
 			wpcf7c_step2(event.detail.unitTag);
+
+			var $form = jQuery(event.target);
+
+			var thanksEnabled = $form
+				.find('.norick-simple-thanks-enabled')
+				.val();
+
+			// OFFなら通常CF7動作
+			if (thanksEnabled !== '1') {
+				break;
+			}
+
+			var $wrapper =
+				$form.closest('.wpcf7');
+
+			// response-output
+			var $response =
+				$wrapper.find(
+					'.wpcf7-response-output'
+				);
+
+			// hidden解除
+			$response.removeClass(
+				'wpcf7c-force-hide'
+			);
+
+			// フォーム内要素を非表示
+			$form
+				.children()
+				.not('.wpcf7-response-output')
+				.hide();
+
+			// 強調class
+			$response.addClass(
+				'wpcf7-confirm-thanks'
+			);
+
+			// message取得
+			var thanksMessage = $form
+				.find('.norick-simple-thanks-message')
+				.val();
+
+			// 既存削除
+			$wrapper.find(
+				'.wpcf7-confirm-additional-message'
+			).remove();
+
+			// 追加メッセージ
+			if (thanksMessage) {
+
+				$response.after(
+					'<div class="wpcf7-confirm-additional-message">' +
+					thanksMessage.replace(/\n/g, '<br>') +
+					'</div>'
+				);
+
+			}
+
 			break;
 	}
 

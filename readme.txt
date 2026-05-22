@@ -3,9 +3,9 @@ Contributors: noricksaeki
 Requires Plugins: contact-form-7
 Tags: contact, form, contact form, confirm, contact form 7
 Requires at least: 6.0
-Tested up to: 6.9
+Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 6.0.1
+Stable tag: 6.0.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: norick-confirm-for-contact-form-7
@@ -31,6 +31,8 @@ Features:
 * Confirmation screen title support
 * Automatically disables the original Contact Form 7 add confirm plugin to avoid conflicts
 * Translation-ready
+* Simple thank you screen support after successful submission
+* Additional thank you message support
 
 This plugin is not affiliated with the Contact Form 7 project.
 
@@ -48,6 +50,8 @@ Japanese:
 * 確認画面への自動スクロール
 * 旧 Contact Form 7 add confirm の自動無効化
 * 翻訳対応
+* シンプルサンキューページ対応
+* 送信完了後の追加メッセージ表示対応
 
 == Installation ==
 
@@ -70,6 +74,14 @@ Add `[confirm]` where you want the confirmation button to appear and `[back]` wh
 Yes. This version has been updated for recent Contact Form 7 and WordPress releases.
 
 == Changelog ==
+= 6.0.2 =
+* Added simple thank you screen support
+* Added additional thank you message support
+* Added optional thank you screen enable setting
+* Improved Contact Form 7 successful submission UI flow
+* Improved compatibility with Contact Form 7 6.x response output handling
+* Added translation strings for thank you screen settings
+
 
 = 6.0.0 =
 * Added custom confirmation screen message support

@@ -64,7 +64,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "Confirm Settings"
-msgstr "確認設定"
+msgstr "確認画面設定"
 
 msgid "Confirmation screen message"
 msgstr "確認画面メッセージ"
@@ -77,3 +77,18 @@ msgstr "入力内容をご確認ください。"
 
 msgid "Original Contact Form 7 add confirm plugin was deactivated to avoid conflicts."
 msgstr "競合防止のため旧 Contact Form 7 add confirm プラグインを無効化しました。"
+
+msgid "Simple Thank You Screen"
+msgstr "シンプルサンキューページ"
+
+msgid "Enable Simple Thank You Screen"
+msgstr "シンプルサンキューページを有効化"
+
+msgid "Hide the form after successful submission and display the success message prominently."
+msgstr "送信完了後にフォームを非表示にし、完了メッセージを強調表示します。"
+
+msgid "Additional message displayed below the Contact Form 7 success message."
+msgstr "Contact Form 7 の完了メッセージ下に追加表示される文章です。"
+
+msgid "This feature works only when the confirmation screen feature is enabled."
+msgstr "この機能は確認画面機能を有効にしている場合のみ動作します。"
